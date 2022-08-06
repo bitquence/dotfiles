@@ -1,22 +1,26 @@
+vim.cmd('packadd packer.nvim')
+
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- Miscellaneous
-	use {
-		--'wakatime/vim-wakatime',
-		--'terryma/vim-expand-region',
-		--'andymass/vim-matchup',
-		--'justinmk/vim-sneak',
-		{
-			'andweeb/presence.nvim', -- Discord rich presence
-			config = function()
-				require('config.presence') end }
-	}
+	--use {
+	--	--'wakatime/vim-wakatime',
+	--	--'terryma/vim-expand-region',
+	--	--'andymass/vim-matchup',
+	--	--'justinmk/vim-sneak',
+	--	{
+	--		'andweeb/presence.nvim', -- Discord rich presence
+	--		config = function()
+	--			require('config.presence')
+	--		end 
+	--	}
+	--}
 
 	-- Fuzzy file finding
-	use {
-		-- 'nvim-telescope/telescope.nvim' 
-	}
+	--use {
+	--	'nvim-telescope/telescope.nvim' 
+	--}
 
 	-- Cosmetic improvements
 	use {
@@ -46,28 +50,31 @@ return require('packer').startup(function(use)
 			require('config.nvim-treesitter')
 		end
 	}
+
 	use {
-		'neovim/nvim-lspconfig',
-		requires = {
-			{
-				'hrsh7th/nvim-cmp',
-				requires = {
-					'hrsh7th/cmp-nvim-lsp',
-					'hrsh7th/cmp-buffer',
-					'hrsh7th/cmp-path',
-					'hrsh7th/cmp-cmdline',
-					-- Snippets are required by nvim-lsp
-					'hrsh7th/vim-vsnip',
-					'hrsh7th/cmp-vsnip',
-				},
-				config = function()
-					require('config.lsp.nvim-cmp')
-				end
-			}
+		{
+			'neovim/nvim-lspconfig',
+			requires = {
+				-- Snippets are required by nvim-lsp
+				'hrsh7th/vim-vsnip',
+				'hrsh7th/cmp-vsnip',
+			},
+			config = function()
+				require('config.lsp.servers')
+			end
 		},
-		config = function() 
-			require('config.lsp.servers')
-		end
+		{
+			'hrsh7th/nvim-cmp',
+			requires = {
+				'hrsh7th/cmp-nvim-lsp',
+				'hrsh7th/cmp-buffer',
+				'hrsh7th/cmp-path',
+				'hrsh7th/cmp-cmdline'
+			},
+			config = function()
+				require('config.lsp.nvim-cmp')
+			end
+		},
 	}
 
 	use {

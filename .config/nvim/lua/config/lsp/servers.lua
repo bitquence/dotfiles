@@ -1,13 +1,13 @@
-local lsp_config = require('lspconfig')
+local nvim_lsp = require('lspconfig')
 local lsp_utils = require('config.lsp.utils')
 
 local capabilities = lsp_utils.capabilities()
 
 local function on_attach(client, buf)
-	lsp_utils.keybinds(buf)
+	lsp_utils.keybinds()
 end
 
-lsp_config['rust_analyzer'].setup {
+nvim_lsp['rust_analyzer'].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	-- settings = {
@@ -24,17 +24,17 @@ lsp_config['rust_analyzer'].setup {
 	-- },
 }
 
-lsp_config['pyright'].setup {
+nvim_lsp['pyright'].setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
 
-lsp_config['gopls'].setup {
+nvim_lsp['gopls'].setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
 
---lsp_config['solang'].setup {
+--nvim_lsp['solang'].setup {
 --  on_attach = on_attach,
 --  capabilities = capabilities
 --}
