@@ -22,3 +22,6 @@ keymap("v", ">", ">gv", opts)
 -- Mimic Emacs horizontal movement bindings
 keymap("i", "<C-a>", "<C-o>^", opts) -- Go to beginning of line
 keymap("i", "<C-e>", "<C-o>$", opts) -- Go to end of line
+
+-- Easily access directory listing (Ex mode)
+keymap("n", "<Leader>x", ":Ex <CR>", opts)

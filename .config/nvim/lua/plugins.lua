@@ -5,17 +5,17 @@ return require('packer').startup(function(use)
 
 	-- Miscellaneous
 	--use {
-	--	--'wakatime/vim-wakatime',
-	--	--'terryma/vim-expand-region',
-	--	--'andymass/vim-matchup',
-	--	--'justinmk/vim-sneak',
-	--	{
-	--		'andweeb/presence.nvim', -- Discord rich presence
-	--		config = function()
-	--			require('config.presence')
-	--		end 
-	--	}
+	--	'wakatime/vim-wakatime',
+	--	'terryma/vim-expand-region',
+	--	'andymass/vim-matchup',
+	--	'justinmk/vim-sneak',
 	--}
+	use {
+		'andweeb/presence.nvim', -- Discord rich presence
+		config = function()
+			require('config.presence')
+		end 
+	}
 
 	-- Fuzzy file finding
 	--use {
@@ -25,12 +25,12 @@ return require('packer').startup(function(use)
 	-- Cosmetic improvements
 	use {
 		--'ryanoasis/vim-devicons',
-		--{
-		--	'lukas-reineke/indent-blankline.nvim',
-		--	config = function()
-		--		--require('config.indent-blankline')
-		--	end
-		--},
+		{
+			'lukas-reineke/indent-blankline.nvim',
+			config = function()
+				require('config.indent-blankline')
+			end
+		},
 		'itchyny/lightline.vim'
 	}
 

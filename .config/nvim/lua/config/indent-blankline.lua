@@ -1,8 +1,5 @@
--- sigh.
-
 --require("indent_blankline").setup {
---	enabled = off,
---	char_blankline = "┊",
+--	blankline_char = "┊",
 --	use_treesitter = true,
 --	space_char_blankline = " "
 --}
