@@ -6,3 +6,5 @@ require('plugins')
 require('options')
 require('autocmds')
 require('colorschemes')
+
+require('config.lsp.servers')
