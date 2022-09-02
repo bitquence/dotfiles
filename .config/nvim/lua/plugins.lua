@@ -25,13 +25,14 @@ return require('packer').startup(function(use)
 	-- Cosmetic improvements
 	use {
 		--'ryanoasis/vim-devicons',
-		{
-			'lukas-reineke/indent-blankline.nvim',
-			config = function()
-				require('config.indent-blankline')
-			end
-		},
-		'itchyny/lightline.vim'
+		--{
+		--	'lukas-reineke/indent-blankline.nvim',
+		--	config = function()
+		--		require('config.indent-blankline')
+		--	end
+		--},
+		'itchyny/lightline.vim',
+		'nvim-treesitter/nvim-treesitter-context'
 	}
 
 	-- Themes
