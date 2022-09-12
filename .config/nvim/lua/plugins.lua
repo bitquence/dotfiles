@@ -4,13 +4,11 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- Miscellaneous
-	--use {
-	--	'wakatime/vim-wakatime',
-	--	'terryma/vim-expand-region',
-	--	'andymass/vim-matchup',
-	--	'justinmk/vim-sneak',
-	--}
 	use {
+		--	'terryma/vim-expand-region',
+		--	'andymass/vim-matchup',
+		--	'justinmk/vim-sneak',
+		'wakatime/vim-wakatime',
 		'andweeb/presence.nvim', -- Discord rich presence
 		config = function()
 			require('config.presence')
