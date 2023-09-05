@@ -1,0 +1,17 @@
+# https://github.com/jonhoo/configs/blob/master/shell/.config/git/config
+
+[user]
+	email = imbitquence@gmail.com
+	name = Jonathan
+[ui "color"]
+	ui = always
+[color]
+	ui = true
+[alias]
+	c = commit
+	s = status
+	l = log --oneline
+[url "git@github.com:"]
+	insteadOf = gh:
+[github]
+	user = bitquence
