@@ -12,6 +12,7 @@ return {
 					"toml",
 					"json",
 					"vim",
+					"vimdoc",
 					"regex",
 					"bash",
 					"markdown",
