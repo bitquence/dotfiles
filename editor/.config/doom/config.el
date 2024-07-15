@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-gruvbox)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -75,28 +75,34 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-font (font-spec :family "Iosevka Term" :size 18)
+(setq doom-font (font-spec :family "Iosevka Term" :size 19)
       doom-symbol-font (font-spec :family "Symbols Nerd Font Mono" :size 18)
-      doom-big-font (font-spec :family "Iosevka" :size 24)
+      ;;doom-big-font (font-spec :family "Iosevka Term" :size 20)
       ;;doom-variable-pitch-font (font-spec :family "Bitter" :size 15)
-      doom-variable-pitch-font (font-spec :family "Comic Mono" :size 15))
-(custom-set-faces!
-  '(font-lock-comment-face :slant italic)
-  '(font-lock-keyword-face :slant italic))
+      ;;doom-variable-pitch-font (font-spec :family "Comic Mono" :size 15)
+)
+;;(custom-set-faces!
+;;  '(font-lock-comment-face :slant italic)
+;;  '(font-lock-keyword-face :slant italic))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
 
 (setq display-line-numbers-type 'relative)
 
-(setq doom-theme 'doom-gruvbox)
-
-;;(setq doom-modeline-modal-modern-icon nil)
+(setq doom-modeline-modal-modern-icon nil)
 
 (setq evil-mode-line-format nil)
 
-(remove-hook 'doom-first-input-hook
-    'evil-snipe-mode)
+(remove-hook 'doom-first-input-hook 'evil-snipe-mode)
+
+(modify-syntax-entry ?_ "w")
+
+(setq minimap-width-fraction 0.05)
+
+(setq treemacs-width 25)
+
+;;(map! "SPC i l m" #'ielm)
 
 ;; TODO: complete 42 header configuration
 ;;(load-file "~/.config/doom/42header.el")
@@ -105,4 +111,11 @@
 ;;      :leader
 ;;      "f t" #'42header-insert)
 
-;;(map! "SPC i m" #'ielm)
+(let ((wakatime-api-key (getenv "WAKATIME_API_KEY")))
+  (if wakatime-api-key
+      (progn (custom-set-variables '(wakatime-api-key wakatime-api-key))
+	     (global-wakatime-mode))
+    (doom-log "Cannot enable wakatime-mode, WAKATIME_API_KEY environment variable is not set")))
+
+;; Enforce tabs by default
+(setq-default indent-tabs-mode 'only)
