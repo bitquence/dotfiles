@@ -1,17 +1,25 @@
--- bitquence/ init_lua
--- Stolen from: too many people to list here
+-- bitquence's neovim configuration
+--       authored on 28/08/23
 
-require('keybindings')
-require('plugins')
-require('options')
-require('autocmds')
-require('colorschemes')
+require("mappings")
+require("options")
 
--- TODO(fix): with my current configuration, packer never loads `config` hooks,
--- so I am sourcing all of my configuration files below
-require('config.nvim-treesitter')
-require('config.nvim-treesitter-context')
-require('config.indent-blankline')
-require('config.presence')
-require('config.lsp.servers')
-require('config.lsp.nvim-cmp')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins", {
+	install = { colorscheme = { "gruvbox" } },
+	change_detection = {
+		notify = false,
+	},
+})
