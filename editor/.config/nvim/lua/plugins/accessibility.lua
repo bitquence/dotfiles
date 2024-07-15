@@ -27,12 +27,13 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPre", "BufNewFile" },
+		main = "ibl",
 		opts = {
-			char = "▏",
-			show_first_indent_level = true,
-			--char = "⎸",
-			--char = "⥠",
-			--char_blankline = " ",
+			indent = {
+				char = "▏"
+				--char = "⎸",
+				--char = "⥠",
+			},
 		},
 	},
 
