@@ -94,8 +94,10 @@
 
 (setq evil-mode-line-format nil)
 
+;; Disable evil-snipe-mode on evil-substitute
 (remove-hook 'doom-first-input-hook 'evil-snipe-mode)
 
+;; Let the evil-mode word motion break on underscores
 (modify-syntax-entry ?_ "w")
 
 (setq minimap-width-fraction 0.05)
